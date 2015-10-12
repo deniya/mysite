@@ -1,20 +1,19 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+	include "controllers/controller.php";
 	include "model.php";
-	$rows=get_all_rows();
+	$uri=$_SERVER['REQUEST_URI'];
+	$uri=rtrim($uri,'/');
+	echo "uri=$uri";
+	
+	if('/mysite/index.php' == $uri || '/mysite/'==$uri){
+		$response=list_action();
+	}elseif('/mysite/index.php/admin'==$uri){
+		$response=admin_action();
+	}elseif('/mysite/index.php/add'==$uri){
+		$response=add_action();
+	}
+	echo $response;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Индексная страница (front controller)</title>
-</head>
-<body>
-	<h1>Список всех записей в таблице</h1>
-		<ol>
 
-			<li>
-				<?php echo $rows['title'].'<br>'.$rows['text']; ?>
-			</li>
-		</ol>
-</body>
-</html>
