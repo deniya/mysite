@@ -40,3 +40,11 @@ function add_row()
 
 	return;
 }
+function get_row($id)
+{
+	$link=open_database_connection();
+	$result=mysql_query("SELECT * FROM pages WHERE id='$id'",$link);
+	$row=mysql_fetch_assoc($result);
+	close_database_connection($link);
+	return $row;
+}

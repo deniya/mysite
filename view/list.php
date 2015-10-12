@@ -3,7 +3,9 @@
 		<ol>
 			<?php foreach($rows as $row): ?>
 				<li>
-					<?php echo $row['title'].'<br>'.$row['text']; ?>
+					<a href="/mysite/index.php/show?id=<?php echo $row['id'];?>">
+						<?php echo $row['title']; ?>
+					</a>
 				</li>
 			<?php endforeach ?>
 		</ol>

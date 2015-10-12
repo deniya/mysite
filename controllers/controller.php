@@ -1,5 +1,5 @@
 <?php
-function render_template($path,array $args)
+function render_template($path, array $args)
 {
 	extract($args);
 	ob_start();
@@ -23,9 +23,15 @@ function admin_action()
 }
 function add_action()
 {
-	$rows=add_row();
+	add_row();
 	$rows=get_all_rows();
-	$html=render_template("view/admin.php",array('rows'=>$row));
+	$html=render_template("view/admin.php",array('rows'=>$rows));
+	return $html;
+}
+function show_action($id)
+{
+	$row=get_row($id);
+	$html=render_template("view/show.php",array('row'=>$row));
 	return $html;
 }
 
