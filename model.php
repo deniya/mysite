@@ -46,5 +46,6 @@ function get_row($id)
 	$result=mysql_query("SELECT * FROM pages WHERE id='$id'",$link);
 	$row=mysql_fetch_assoc($result);
 	close_database_connection($link);
+	
 	return $row;
 }

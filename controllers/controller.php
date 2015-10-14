@@ -30,6 +30,7 @@ function add_action()
 }
 function show_action($id)
 {
+	echo "test show_action";
 	$row=get_row($id);
 	$html=render_template("view/show.php",array('row'=>$row));
 	return $html;
