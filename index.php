@@ -1,8 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+	
 	include "controllers/controller.php";
-	include "model.php";
+	include "model/model.php";
 	$uri=$_SERVER['REQUEST_URI'];
 	$s = explode('?', $_SERVER['REQUEST_URI']);
 	$uri = $s[0];
