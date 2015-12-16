@@ -5,22 +5,23 @@
  ?>
 <?php ob_start(); ?>
 <div class="container">
-	<h3>Добавление статьи</h3>
-	<form role="form" action="/mysite/index.php/add" method="POST" onsubmit="return validate()">
+	<h3>Редактирование статьи</h3>
+	<form role="form" action="/mysite/index.php/update" method="POST" onsubmit="return validate()">
 	    <div class="form-group" >
 	      <label for="title">Заголовок:</label>
-	      <input type="text" class="form-control" id="title" name="_title" placeholder="Заголовок">
+	      <input type="text" class="form-control" id="title" name="_title" placeholder="Заголовок" value="<?php echo $row['title'] ?>">
+	      <input type="hidden" id="id" name="_id" value="<?php echo $row['id'] ?>">
 	    </div>
 	    <div class="form-group">
 	      <label for="content">Текст:</label>
-	      <textarea class="form-control" id="content" name="_content" placeholder="Текст" rows="10"></textarea>
+	      <textarea class="form-control" id="content" name="_content" placeholder="Текст" rows="10"><?php echo $row['content'] ?></textarea>
 	    </div>
 	    <div class="form-group">
 	      <label for="author">Автор:</label>
-	      <input type="text" class="form-control" id="author" name="_author" placeholder="Автор">
+	      <input type="text" class="form-control" id="author" name="_author" placeholder="Автор" value="<?php echo $row['author'] ?>">
 	    </div>
 	    <button type="reset" class="btn btn-default">Очистить</button>
-	    <button type="submit" class="btn btn-default">Добавить</button>
+	    <button type="submit" class="btn btn-default">Изменить</button>
 	</form>
 	
 	<h3>Список всех записей в таблице</h3>

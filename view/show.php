@@ -1,9 +1,14 @@
 <?php ob_start(); ?>
+<?php 
+	$link='
+		<link rel="stylesheet" href="/mysite/css/show.css">'  		 
+ ?>
+<div class="container">
 	<h2><?php echo $row['title']; ?></h2>
-	<p>Автор: <?php echo $row['autor'];?></p>
-	<p>Дата: <?php echo $row['date'];?></p>
-	<p>Текст статьи: <?php echo $row['text'];?></p>
-		
+	<div class="well well-sm">Автор: <?php echo $row['author'];?></div>
+	<div class="well well-sm">Дата: <?php echo $row['date'];?></div>
+	<div class="well well-sm">Текст статьи: <?php echo $row['content'];?></div>
+</div>		
 <?php $content=ob_get_clean(); ?>
 
 <?php include 'view/layout.php'; ?>

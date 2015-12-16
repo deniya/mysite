@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 	
 	include "controllers/controller.php";
 	include "model/model.php";
@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 	$s = explode('?', $_SERVER['REQUEST_URI']);
 	$uri = $s[0];
 	$uri=rtrim($uri,'/');
-	echo "uri=$uri";
+	//echo "uri=$uri";
 	if('/mysite/index.php' == $uri || '/mysite'==$uri){
 		$response=list_action();
 	}elseif('/mysite/index.php/admin'==$uri){
@@ -17,7 +17,13 @@ ini_set('display_errors', 1);
 		$response=add_action();
 	}elseif('/mysite/index.php/show'==$uri){
 	 	$response=show_action($_REQUEST['id']);
-	 }
+	}elseif('/mysite/index.php/delete'==$uri){
+	 	$response=delete_action($_REQUEST['id']);
+	}elseif('/mysite/index.php/update'==$uri){
+	 	$response=update_action();
+	}elseif('/mysite/index.php/edit'==$uri){
+	 	$response=edit_action($_REQUEST['id']);
+	}
+
 	echo $response;
-?>
 

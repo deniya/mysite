@@ -30,10 +30,30 @@ function add_action()
 }
 function show_action($id)
 {
-	echo "test show_action";
 	$row=get_row($id);
 	$html=render_template("view/show.php",array('row'=>$row));
 	return $html;
 }
-
+function delete_action($id)
+{
+	$row=delete_row($id);
+	$rows=get_all_rows();
+	$html=render_template("view/admin.php",array('rows'=>$rows));
+	return $html;
+}
+function edit_action($id)
+{
+	$row=get_row($id);
+	$rows=get_all_rows();
+	$html=render_template("view/edit.php",array('row'=>$row,
+												'rows'=>$rows));
+	return $html;
+}
+function update_action()
+{
+	update_row();
+	$rows=get_all_rows();
+	$html=render_template("view/admin.php",array('rows'=>$rows));
+	return $html;
+}
 
