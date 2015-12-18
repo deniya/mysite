@@ -12,7 +12,8 @@
 	
 </head>
 <body>
+<h1>This fail is sparta.php</h1>
 	<?php echo $content; ?>
-
+<h4>That's a footer of this site</h4>
 </body>
 </html>
